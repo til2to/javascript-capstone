@@ -70,6 +70,13 @@ To get a local copy up and running, follow these steps.
 - GitHub: [@githubhandle](https://github.com/til2to)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/dennis-owusu-835888206/)
 
+👤 **Supreeti Kushwaha**
+
+- GitHub: [@supreeti](https://github.com/supreeti)
+- Twitter: [@Ksupreeti](https://twitter.com/Ksupreeti)
+- LinkedIn: [Supreeti](https://www.linkedin.com/in/supreeti-kushwaha-23336232/)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
