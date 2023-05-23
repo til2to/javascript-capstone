@@ -1,22 +1,8 @@
 const baseUrl = 'https://api.spacexdata.com/v3/rockets';
 
-// // get rocket by id
-// const gameRecords = async (data, gameId) => {
-//   try {
-//     const response = await fetch(`${baseUrl}/${gameId}/scores`, {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(data),
-//     });
-//     if (!response.ok) {
-//       throw new Error('Request failed');
-//     }
-//   } catch (error) {
-//     throw new Error(error.message);
-//   }
-// };
+//app id: 5GbgWWZPMVcYokoIs4ID
 
-// get all rockets
+// get all rockets 🚀🚀
 const getAllRockets = async () => {
   try {
     const response = await fetch(`${baseUrl}`);
@@ -38,4 +24,4 @@ const getAllRockets = async () => {
   }
 };
 
-export { getAllRockets };
+export default getAllRockets;

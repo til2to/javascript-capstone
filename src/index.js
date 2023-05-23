@@ -1,11 +1,10 @@
 import './style.css';
 import homepageView from './modules/homeView.js';
-import { getAllRockets } from './modules/rocketsApi';
+import getAllRockets from './modules/rocketsApi.js';
 
 const rocketsContainer = document.querySelector('.rockets-container');
-const likeButton = document.querySelector('.like-button');
-const likeIcons = document.querySelectorAll('.like-and-icon i');
 
+// validate if local storage has data associated with rocketData key
 if (JSON.parse(localStorage.getItem('rocketData')) === null || JSON.parse(localStorage.getItem('rockData')) === undefined) {
   localStorage.setItem('rocketData', JSON.stringify([]));
 }
@@ -43,15 +42,17 @@ const getDataFromLocalStorage = async (key) => {
   }
 })();
 
+// all rockets 🚀🚀
 getAllRockets();
+
+// get rocket🚀 counts from the local storage and update the ui menu item
+const getRocketCount = () => {
+  const rocketsMenuItem = document.getElementById('rocketsMenuItem');
+  const rocketsCount = rockets.length;
+  rocketsMenuItem.innerHTML = `Rockets (${rocketsCount})`;
+};
+
+// Call the getRocketCount() after fetching the data from local storage:
+getRocketCount() // 🚀🚀
+
 homepageView(rockets);
-
-// likeButton.addEventListener('click', () => {
-//   likeButton.classList.toggle('liked');
-// });
-
-// button.addEventListener('click', () => {
-//   console.log("clicked");
-//   getAllRockets();
-// })
-

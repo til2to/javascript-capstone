@@ -7,6 +7,7 @@ const homepageView = (data) => {
     const rocketName = rocket.rocket_name
     const rocketImage = rocket.flickr_images
     
+    // view rockets and details 🚀🚀
     rockets += `
       <li class="each-rocket" id="${rocketId}}">
         <img src="${rocketImage}" alt="" class="list-item-image">
@@ -26,32 +27,23 @@ const homepageView = (data) => {
     `;
   });
   rocketsContainer.innerHTML = rockets;
-  console.log(data)
 
   // Add event listener to toggle heart icon color and track the icon button clicked
   const likeIcons = document.querySelectorAll('.like-and-icon i');
+
+  // track the like icon clicked 👍
   likeIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
       const rocketId = icon.getAttribute('data-rocket-id');
       icon.classList.toggle('liked');
-      console.log(rocketId)
-
-      // Perform additional logic specific to the rocket with the given rocketId
-      // Example: Update the like count for the specific rocket
-      // updateLikeCount(rocketId);
     });
   });
 
-  // track the comment button clicked
+  // track the comment 💬 button clicked 
   const commentButtons = document.querySelectorAll('.comments-button');
   commentButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const rocketId = button.getAttribute('data-rocket-id');
-      console.log(rocketId)
-
-      // Perform additional logic specific to the rocket with the given rocketId
-      // Example: Display comments for the specific rocket
-      // displayComments(rocketId);
     });
   });
 };
