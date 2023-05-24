@@ -53,6 +53,6 @@ const getRocketCount = () => {
 };
 
 // Call the getRocketCount() after fetching the data from local storage:
-getRocketCount() // 🚀🚀
+getRocketCount(); // 🚀🚀
 
 homepageView(rockets);

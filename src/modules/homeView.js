@@ -3,10 +3,11 @@ const homepageView = (data) => {
   const rocketsContainer = document.querySelector('.rockets-container');
   let rockets = '';
   data.forEach((rocket) => {
-    const rocketId = rocket.rocket_id
-    const rocketName = rocket.rocket_name
-    const rocketImage = rocket.flickr_images
-    
+    /* eslint-disable camelcase */
+    const rocketId = rocket.rocket_id;
+    const rocketName = rocket.rocket_name;
+    const rocketImage = rocket.flickr_images;
+
     // view rockets and details 🚀🚀
     rockets += `
       <li class="each-rocket" id="${rocketId}}">
@@ -34,18 +35,16 @@ const homepageView = (data) => {
   // track the like icon clicked 👍
   likeIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
-      const rocketId = icon.getAttribute('data-rocket-id');
       icon.classList.toggle('liked');
     });
   });
 
-  // track the comment 💬 button clicked 
+  // track the comment 💬 button clicked
   const commentButtons = document.querySelectorAll('.comments-button');
   commentButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      const rocketId = button.getAttribute('data-rocket-id');
     });
   });
 };
 
-export default homepageView
+export default homepageView;
