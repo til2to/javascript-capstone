@@ -1,6 +1,7 @@
 import './style.css';
 import homepageView from './modules/homeView.js';
 import { getAllRockets } from './modules/apis.js';
+import getAllRockets from './modules/rocketsApi.js';
 
 const rocketsContainer = document.querySelector('.rockets-container');
 
