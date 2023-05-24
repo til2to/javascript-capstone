@@ -1,4 +1,4 @@
-import { likeRocket, getLikes } from "./apis.js";
+import { likeRocket, getLikes } from './apis.js';
 
 // render data of the homepage
 const homepageView = async (data) => {
@@ -9,17 +9,19 @@ const homepageView = async (data) => {
     const likesData = await getLikes(); // Retrieve the likes data from the API
     const likesMap = new Map();
 
-    // Create a map of rocketId to likes count
+    /* eslint-disable camelcase */
     likesData.forEach(({ item_id, likes }) => {
-      likesMap.set(item_id, likes); 
+      // Create a map of rocketId to likes count
+      likesMap.set(item_id, likes);
     });
 
     data.forEach((rocket) => {
+      /* eslint-disable camelcase */
       const rocketId = rocket.rocket_id;
       const rocketName = rocket.rocket_name;
       const rocketImage = rocket.flickr_images;
       // Get the likes count from the map, defaulting to 0 if not found
-      const rocketLikes = likesMap.get(rocketId) || 0; 
+      const rocketLikes = likesMap.get(rocketId) || 0;
 
       // the rockets views 🚀🚀
       rockets += `
@@ -41,53 +43,52 @@ const homepageView = async (data) => {
       `;
     });
     rocketsContainer.innerHTML = rockets;
-  
+
     // Add event listener to toggle heart icon color and track the icon button clicked
     const likeIcons = document.querySelectorAll('.like-and-icon i');
     likeIcons.forEach((icon) => {
       icon.addEventListener('click', async () => {
         const rocketId = icon.getAttribute('data-rocket-id');
         icon.classList.toggle('liked');
-  
+
         try {
-          // initialize and add some likes to the likes count 👍
-          const data = await likeRocket(rocketId);
+          // initialize and add some likes to the likes count👍
+          await likeRocket(rocketId);
         } catch (error) {
           // Handle any errors
-          throw new Error(error.message);;
+          throw new Error(error.message);
         }
-  
-        // call the endpoint get the likes 👍👍
+
+        // call the endpoint get the likes👍👍
         try {
           const data = await getLikes();
-          const updateLike = data.find(({item_id}) => item_id === rocketId)
+          /* eslint-disable camelcase */
+          const updateLike = data.find(({ item_id }) => item_id === rocketId);
           // update the like count of each rocket in the UI
           if (updateLike) {
             const likeCountElement = document.getElementById(`likeCount${rocketId}`);
             likeCountElement.textContent = `${updateLike.likes} likes`;
-          }
-          else{
+          } else {
             const likeCountElement = document.getElementById(`likeCount${rocketId}`);
-            likeCountElement.textContent = `0 likes`;
+            likeCountElement.textContent = '0 likes';
           }
         } catch (error) {
           throw new Error(error.message);
         }
       });
     });
-  
-    // track the comment button clicked
+
+    // track the comment💬 button clicked
     const commentButtons = document.querySelectorAll('.comments-button');
     commentButtons.forEach((button) => {
       button.addEventListener('click', () => {
-        const rocketId = button.getAttribute('data-rocket-id');
-        //comments to be handled
+        // const rocketId = button.getAttribute('data-rocket-id');
+        // comments to be handled
       });
-    }); 
-
+    });
   } catch (error) {
     throw new Error(error.message);
   }
 };
 
-export default homepageView
+export default homepageView;
