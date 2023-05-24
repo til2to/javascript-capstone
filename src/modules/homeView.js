@@ -86,7 +86,6 @@ const homepageView = async (data) => {
         // comments to be handled
       });
     });
-    
   } catch (error) {
     throw new Error(error.message);
   }
