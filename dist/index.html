@@ -21,12 +21,24 @@
         </ul>
       </nav>
     </header>
-
-    <main></main>
+    <main>
+      <div class="center"><button id="show-comment">Comments</button></div>
+      <div class="popup">
+        <div class="close-btn">&times;</div>
+        <div>
+          <img src="images/space.png">
+          <h3>Add a comment</h3>
+        <form>
+          <input type="text" value = "" placeholder="Your name">
+          <textarea type="textarea" placeholder="Your insights"></textarea>
+          
+        </form> 
+        <button id="form-element" type="submit">Comment</button>
+      </div>
+    </div>
+    </main>
     <footer class="footer">
-      <p>Created by Denis and Supreeti under MIT license</p>
+      <p>Created by Denis and Supreeti under MIT license.</p>
   </footer>
-    <script defer src="runtime.bundle.js"></script>
-    <script defer src="main.bundle.js"></script>
   </body>
 </html>
