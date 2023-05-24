@@ -73,7 +73,7 @@ a:hover {
 }
 
 .list-item-image {
-  width: 100%;
+  width: 90%;
   height: auto;
 }
 
@@ -88,7 +88,7 @@ a:hover {
 /* Default heart icon */
 .fa-heart {
   color: black; /* Set the default color */
-  transition: color 0.5s; /* Add a smooth transition effect */
+  transition: color 0.5s;
 }
 
 /* Active (liked) heart icon */
