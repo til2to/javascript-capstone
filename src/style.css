@@ -156,8 +156,12 @@ main {
 }
 
 .each-popup {
-  width: 100%;
+  width: 95%;
   margin: 50px 0;
+  height: 95%;
+  backdrop-filter: blur(5px);
+  overflow: scroll;
+  border: 1px solid #dfe1e6;
 }
 
 .image-and-close-button {
@@ -217,7 +221,8 @@ main {
 }
 
 .message-details {
-  width: 100%;
+  width: 30%;
+  padding-left: 300px;
 }
 
 .items-properties.each-property.message {
