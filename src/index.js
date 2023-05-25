@@ -26,10 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     messageElement.textContent = message;
     rocketsContainer.appendChild(messageElement);
   };
-
   if (!rockets === 0) showMessage('waiting');
 });
-// get data from local storage
 const getDataFromLocalStorage = async (key) => {
   try {
     return JSON.parse(localStorage.getItem(key));
