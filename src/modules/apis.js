@@ -27,9 +27,7 @@ const getAllRockets = async () => {
       rocket_id,
       flickr_images: flickr_images[0], // Extract the first element from the flickr_images array
     }));
-
     localStorage.setItem('rocketData', JSON.stringify(rocketsData));
-
   } catch (error) {
     throw new Error(error.message);
   }
