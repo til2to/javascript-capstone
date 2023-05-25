@@ -1,15 +1,26 @@
+html,
 body {
-  margin: 3%;
+  margin: 0;
+  padding: 0;
+  height: calc(100% - 20px);
+  overflow-y: auto;
 }
 
-header {
-  padding: 10px;
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-around;
+  padding-top: 2%;
 }
 
 .logo {
@@ -17,146 +28,260 @@ nav {
   font-size: 20px;
   text-decoration: none;
   color: #333;
+  display: inline;
+  margin-right: 10px;
 }
 
-ul {
+.logo-image {
+  width: 300px;
+  height: 50px;
+}
+
+nav ul {
   list-style-type: none;
   display: flex;
+  align-items: center;
 }
 
-li {
+nav ul li {
   margin-left: 10px;
+}
+
+#rockets-menu-item {
+  font-size: 21px;
 }
 
 a {
   text-decoration: none;
   color: #333;
   padding: 5px;
+  font-size: 21px;
 }
 
 a:hover {
   color: #666;
 }
 
-.footer {
-  float: left;
+main {
+  margin-top: 5%;
+}
+
+#home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#home-container > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#home-container > ul > li {
+  flex-basis: calc(33.33% - 2%);
+  margin: 4% 0;
+  list-style-type: none;
+}
+
+.item > h3 {
+  margin: 0;
+}
+
+.item {
+  margin: 7% 10%;
+  display: flex;
+  gap: 50px;
+}
+
+.list-item-image {
+  width: 90%;
+  height: auto;
+}
+
+.like-and-icon {
+  margin-left: 50px;
+}
+
+.like-count {
+  margin-top: 10px;
+}
+
+/* Default heart icon */
+.fa-heart {
+  color: black; /* Set the default color */
+  transition: color 0.5s;
+}
+
+/* Active (liked) heart icon */
+.fa-heart.liked {
+  color: red; /* Set the color when liked */
+}
+
+.like-and-icon i {
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comments-button {
+  width: 80%;
+  background-color: #000080;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comments-button:hover {
+  background-color: #0056b3;
+}
+
+.comments-button:focus {
+  outline: none;
+}
+
+.comments-button:active {
+  transform: scale(0.95);
+}
+
+/* ------------------------------ */
+
+.each-popup {
   width: 100%;
-  height: 40px;
-  font-weight: 200;
+  margin: 50px 0;
+}
+
+.image-and-close-button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-item-image {
+  margin-top: 3%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+#modal-btn {
+  display: none;
+}
+
+.fa-times-circle {
+  position: absolute;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  left: 90%;
+  font-size: 24px;
+}
+
+.rocket-description {
+  font-weight: 700;
+  font-size: x-large;
+}
+
+.comments {
+  font-weight: 400;
+  font-size: 23px;
+}
+
+.rocket-header-container {
+  display: flex;
+  justify-content: center;
+  margin: 4% auto;
+}
+
+.rocket-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.items-properties {
+  margin-right: 20px;
+}
+
+.message-details {
+  width: 100%;
+}
+
+.items-properties.each-property.message {
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.message {
+  font-size: 19px;
+  display: flex;
+  margin-top: 2%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-container {
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-container label,
+.form-container input,
+.form-container textarea,
+.form-container button {
+  margin-bottom: 10px;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.response-animation {
+  animation: fade-in 0.3s ease forwards;
+  color: green;
+  font-size: larger;
+  margin-bottom: 5px;
+}
+
+.comment-popup {
+  width: 40%;
+  font-size: large;
+}
+
+.footer {
+  padding: 20px;
+  flex-shrink: 0;
+  margin-top: auto;
   border-top: 5px solid black;
-  margin-bottom: 0;
 }
 
 .footer p {
-  font-size: 16px;
-}
-
-.center {
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.center button {
-  padding: 10px 20px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #222;
-  background: #f5f5f5;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.popup {
-  position: absolute;
-  top: 150%;
-  left: 50%;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(1.25);
-  width: 80%;
-  padding: 20px 30px;
-  background: #fff;
-  box-shadow: 2px 5px 5px 3px black;
-  border-radius: 5px;
-  transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms;
-}
-
-.popup.active {
-  top: 50%;
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-  transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms;
-}
-
-.popup .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 15px;
-  color: #eee;
-  cursor: pointer;
-  text-align: center;
-  line-height: 15px;
-  border-radius: 15px;
-}
-
-.popup .form h2 {
-  margin: 10px 0 20px;
-  font-size: 25px;
-  color: #222;
-  text-align: center;
-}
-
-.popup .form .form-element {
-  margin: 15px 0;
-  gap: 20px;
-}
-
-.popup .form .form-element input {
-  margin-top: 5px;
-  width: 100%;
-  border-radius: 5px;
-  outline: none;
-  padding: 10px;
-  display: block;
-}
-
-.popup-container {
-  text-align: center;
-  padding: 20px;
-}
-
-.popup img {
-  width: 50%;
-  height: 40%;
-}
-
-.popup .form textarea {
-  height: 100px;
-  display: block;
-  width: 40%;
-  margin: 10px auto;
-  border: 1px solid #333;
-  border-radius: 8px;
-  outline: none;
-}
-
-.popup .form button {
-  height: 30px;
-  width: 50%;
-  margin-left: -20%;
-  text-align: left;
-  padding: 0 8px;
-  background: #222;
-  color: #f5f5f5;
-  border-radius: 8px;
-  cursor: pointer;
-  border: none;
-  font-size: 15px;
-}
-
-.popup .form button:hover {
-  color: #ea9215;
-  background-color: #f1f1f1;
+  font-size: 20px;
 }

@@ -5,40 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Javascript Capstone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   </head>
   <body>
     <header>
       <nav>
         <div>
           <a href="#" class="logo">
-            <img src="" alt="Your Logo">
+            <img src=" " alt="Your Logo" class="logo-image">
           </a>
         </div>
         <ul>
-          <li><a href="#">Rockets</a></li>
+          <li id="rockets-menu-item">
+            <a href="#">Rockets</a>
+          </li>
           <li><a href="#">Planets</a></li>
           <li><a href="#">Races</a></li>
         </ul>
       </nav>
     </header>
+
     <main>
-      <div class="center"><button id="show-comment">Comments</button></div>
-      <div class="popup">
-        <div class="close-btn">&times;</div>
-        <div>
-          <img src="images/space.png">
-          <h3>Add a comment</h3>
-        <form>
-          <input type="text" value = "" placeholder="Your name">
-          <textarea type="textarea" placeholder="Your insights"></textarea>
-          
-        </form> 
-        <button id="form-element" type="submit">Comment</button>
-      </div>
-    </div>
+      <section id="home-container">
+        <ul class="rockets-container"></ul>
+      </section>
+      <i class="fas fa-times-circle" id="modal-btn"></i>
+      <section class="popups-container"></section>
     </main>
+
     <footer class="footer">
-      <p>Created by Denis and Supreeti under MIT license.</p>
+      <p>Created by Dennis and Supreeti under MIT license</p>
   </footer>
+    <script defer src="runtime.bundle.js"></script>
+    <script defer src="main.bundle.js"></script>
   </body>
 </html>
