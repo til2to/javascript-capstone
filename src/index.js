@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!rockets === 0) showMessage('waiting');
 });
-
 // get data from local storage
 const getDataFromLocalStorage = async (key) => {
   try {
@@ -56,7 +55,6 @@ getAllRockets();
 
 // get rocket🚀 counts from the local storage and update the ui menu item
 const getRocketCount = () => {
-
   const rocketsMenuItem = document.getElementById('rockets-menu-item');
   const rocketsCount = rockets.length;
   rocketsMenuItem.innerHTML = `Rockets (${rocketsCount})`;
