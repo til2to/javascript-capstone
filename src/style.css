@@ -12,6 +12,10 @@ body {
   margin: 0 auto;
 }
 
+/* .content {
+  flex: 1;
+} */
+
 nav {
   display: flex;
   align-items: center;
@@ -150,8 +154,6 @@ main {
 .comments-button:active {
   transform: scale(0.95);
 }
-
-/* ------------------------------ */
 
 .each-popup {
   width: 100%;

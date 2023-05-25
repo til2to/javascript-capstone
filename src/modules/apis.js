@@ -29,6 +29,7 @@ const getAllRockets = async () => {
     }));
 
     localStorage.setItem('rocketData', JSON.stringify(rocketsData));
+
   } catch (error) {
     throw new Error(error.message);
   }

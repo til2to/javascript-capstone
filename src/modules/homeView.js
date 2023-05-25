@@ -30,6 +30,7 @@ const homepageView = async (data) => {
 
       // Get the likes count from the map, defaulting to 0 if not found
       const rocketLikes = likesMap.get(rocketId) || 0;
+
       // the rockets views 🚀🚀
       rockets += `
         <li class="each-rocket" id="${rocketId}}">

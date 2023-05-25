@@ -56,6 +56,7 @@ getAllRockets();
 
 // get rocket🚀 counts from the local storage and update the ui menu item
 const getRocketCount = () => {
+
   const rocketsMenuItem = document.getElementById('rockets-menu-item');
   const rocketsCount = rockets.length;
   rocketsMenuItem.innerHTML = `Rockets (${rocketsCount})`;
