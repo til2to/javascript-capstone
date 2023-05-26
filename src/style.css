@@ -6,11 +6,11 @@ body {
   overflow-y: auto;
 }
 
-/* body {
+body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-} */
+}
 
 nav {
   display: flex;
@@ -159,7 +159,7 @@ main {
   width: 90%;
   margin: 0;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 40%;
@@ -195,9 +195,10 @@ main {
 }
 
 .popup-item-image {
-  width: 80%;
-  height: 20%;
-  object-fit: cover;
+  width: 100%;
+  height: 400px;
+  object-fit: contain;
+  margin-top: 5%;
 }
 
 .rocket-description {
@@ -261,7 +262,7 @@ main {
   align-items: flex-start;
   width: 55%;
   margin-right: auto;
-  margin-left: 150px;
+  margin-left: 25%;
 }
 
 .form-container label,
