@@ -6,11 +6,11 @@ body {
   overflow-y: auto;
 }
 
-body {
+/* body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-}
+} */
 
 nav {
   display: flex;
@@ -29,12 +29,12 @@ nav {
   text-decoration: none;
   color: #333;
   display: inline;
-  margin-right: 10px;
 }
 
 .logo-image {
   width: 300px;
   height: 50px;
+  border-radius: 50%;
 }
 
 nav ul {
@@ -92,16 +92,17 @@ main {
 .item {
   margin: 7% 10%;
   display: flex;
-  gap: 50px;
+  gap: 20px;
 }
 
 .list-item-image {
-  width: 90%;
-  height: auto;
+  width: 80%;
+  height: 200px;
+  border: #333 solid 2px;
 }
 
 .like-and-icon {
-  margin-left: 50px;
+  margin-left: 2px;
 }
 
 .like-count {
@@ -110,7 +111,7 @@ main {
 
 /* Default heart icon */
 .fa-heart {
-  color: black; /* Set the default color */
+  color: rgb(34, 27, 27); /* Set the default color */
   transition: color 0.5s;
 }
 
@@ -133,11 +134,13 @@ main {
   width: 80%;
   background-color: #000080;
   color: #fff;
-  padding: 8px 16px;
+  padding: 2px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0 5px 5px 0 black;
   transition: background-color 0.3s ease;
+  height: 20px;
 }
 
 .comments-button:hover {
@@ -154,21 +157,20 @@ main {
 
 .each-popup {
   width: 90%;
-  margin: 50px 0;
+  margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 80%;
-  overflow-y: scroll;
+  height: 40%;
 }
 
 .pop-container {
-  box-shadow: 0 0 5px white;
-  width: 70%;
-  margin-right: auto;
-  margin-left: auto;
+  box-shadow: 0 0 2px rgb(37, 37, 37);
+  margin-right: 0;
   border: 2px solid #333;
+  background-color: rgb(136, 185, 250);
+  overflow-y: scroll;
 }
 
 .image-and-close-button {
@@ -179,9 +181,6 @@ main {
 }
 
 #modal-btn {
-  /* display: none; */
-
-  /* margin: 0 0; */
   z-index: 999;
   position: fixed;
   cursor: pointer;
@@ -189,16 +188,15 @@ main {
 
 .fa-times-circle {
   position: absolute;
-  top: 10%;
+  top: 30%;
   transform: translate(-50%, -50%);
   left: 90%;
-  font-size: 24px;
+  font-size: 32px;
 }
 
 .popup-item-image {
-  margin-top: 3%;
-  width: 70%;
-  height: auto;
+  width: 80%;
+  height: 20%;
   object-fit: cover;
 }
 
@@ -210,19 +208,19 @@ main {
 .comments {
   font-weight: 400;
   font-size: 23px;
+  padding: 16px;
 }
 
 .rocket-header-container {
   display: flex;
   justify-content: center;
-  margin: 4% auto;
 }
 
 .rocket-details {
+  padding: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5%;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -230,38 +228,40 @@ main {
 
 .items-properties {
   margin-right: 20px;
+  margin-left: 20px;
+  padding: 5px;
 }
 
 .message-details {
   width: 100%;
+  margin-left: 120px;
 }
 
 .items-properties.each-property.message {
   margin-bottom: 10px;
-
-  /* text-align: center; */
   margin-right: auto;
   margin-left: auto;
   width: 100%;
 }
 
 .message {
-  font-size: 19px;
+  font-size: 12px;
   display: flex;
-  margin-top: 2%;
+  margin-top: 1%;
   width: 55%;
+  row-gap: 2px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .form-container {
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 55%;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: 150px;
 }
 
 .form-container label,
@@ -297,16 +297,18 @@ main {
 
 .comment-popup {
   width: 40%;
-  font-size: large;
+  font-size: 12px;
 }
 
 .footer {
-  padding: 20px;
+  padding: 10px;
   flex-shrink: 0;
-  margin-top: auto;
+  height: 20px;
   border-top: 5px solid black;
+  margin-bottom: 0;
 }
 
 .footer p {
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 600;
 }
