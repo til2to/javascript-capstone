@@ -1,7 +1,7 @@
 import './style.css';
 import homepageView from './modules/homeView.js';
 import logo from './assets/rocket-logo.svg';
-import { getAllRockets } from './modules/apis';
+import { getAllRockets } from './modules/apis.js';
 
 const rocketsContainer = document.querySelector('.rockets-container');
 const imageElement = document.querySelector('.logo-image');
