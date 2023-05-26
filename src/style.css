@@ -6,21 +6,21 @@ body {
   overflow-y: auto;
 }
 
-body {
+/* body {
   display: flex;
   flex-direction: column;
-  width: 90%;
   margin: 0 auto;
-}
-
-/* .content {
-  flex: 1;
 } */
 
 nav {
   display: flex;
-  justify-content: left;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-around;
+  padding-top: 2%;
 }
 
 .logo {
@@ -28,29 +28,52 @@ nav {
   font-size: 20px;
   text-decoration: none;
   color: #333;
+  display: inline;
+}
+
+.logo-image {
+  width: 300px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 nav ul {
   list-style-type: none;
   display: flex;
+  align-items: center;
 }
 
 nav ul li {
   margin-left: 10px;
 }
 
+#rockets-menu-item {
+  font-size: 21px;
+}
+
 a {
   text-decoration: none;
   color: #333;
   padding: 5px;
+  font-size: 21px;
 }
 
 a:hover {
   color: #666;
 }
 
+main {
+  margin-top: 5%;
+}
+
+#home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 #home-container > ul {
-  padding-left: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -69,16 +92,17 @@ a:hover {
 .item {
   margin: 7% 10%;
   display: flex;
-  gap: 50px;
+  gap: 20px;
 }
 
 .list-item-image {
-  width: 90%;
-  height: auto;
+  width: 80%;
+  height: 200px;
+  border: #333 solid 2px;
 }
 
 .like-and-icon {
-  margin-left: 50px;
+  margin-left: 2px;
 }
 
 .like-count {
@@ -87,7 +111,7 @@ a:hover {
 
 /* Default heart icon */
 .fa-heart {
-  color: black; /* Set the default color */
+  color: rgb(34, 27, 27); /* Set the default color */
   transition: color 0.5s;
 }
 
@@ -102,7 +126,7 @@ a:hover {
 
 .button-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 
@@ -110,11 +134,13 @@ a:hover {
   width: 80%;
   background-color: #000080;
   color: #fff;
-  padding: 8px 16px;
+  padding: 2px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0 5px 5px 0 black;
   transition: background-color 0.3s ease;
+  height: 20px;
 }
 
 .comments-button:hover {
@@ -129,13 +155,160 @@ a:hover {
   transform: scale(0.95);
 }
 
+.each-popup {
+  width: 90%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40%;
+}
+
+.pop-container {
+  box-shadow: 0 0 2px rgb(37, 37, 37);
+  margin-right: 0;
+  border: 2px solid #333;
+  background-color: rgb(136, 185, 250);
+  overflow-y: scroll;
+}
+
+.image-and-close-button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#modal-btn {
+  z-index: 999;
+  position: fixed;
+  cursor: pointer;
+}
+
+.fa-times-circle {
+  position: absolute;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  left: 90%;
+  font-size: 32px;
+}
+
+.popup-item-image {
+  width: 80%;
+  height: 20%;
+  object-fit: cover;
+}
+
+.rocket-description {
+  font-weight: 700;
+  font-size: x-large;
+}
+
+.comments {
+  font-weight: 400;
+  font-size: 23px;
+  padding: 16px;
+}
+
+.rocket-header-container {
+  display: flex;
+  justify-content: center;
+}
+
+.rocket-details {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.items-properties {
+  margin-right: 20px;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.message-details {
+  width: 100%;
+  margin-left: 120px;
+}
+
+.items-properties.each-property.message {
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.message {
+  font-size: 12px;
+  display: flex;
+  margin-top: 1%;
+  width: 55%;
+  row-gap: 2px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-container {
+  margin-bottom: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 55%;
+  margin-right: auto;
+  margin-left: 150px;
+}
+
+.form-container label,
+.form-container input,
+.form-container textarea,
+.form-container button {
+  margin-bottom: 10px;
+  padding: 4px;
+}
+
+.form-container label {
+  display: none;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.response-animation {
+  animation: fade-in 0.3s ease forwards;
+  color: green;
+  font-size: larger;
+  margin-bottom: 5px;
+}
+
+.comment-popup {
+  width: 40%;
+  font-size: 12px;
+}
+
 .footer {
-  padding: 20px;
+  padding: 10px;
   flex-shrink: 0;
-  margin-top: auto;
+  height: 20px;
   border-top: 5px solid black;
+  margin-bottom: 0;
 }
 
 .footer p {
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 600;
 }

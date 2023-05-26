@@ -1,8 +1,12 @@
 import './style.css';
 import homepageView from './modules/homeView.js';
-import { getAllRockets } from './modules/apis.js';
+import logo from './assets/rocket-logo.svg';
 
 const rocketsContainer = document.querySelector('.rockets-container');
+const imageElement = document.querySelector('.logo-image');
+
+// get the logo container and insert the image
+imageElement.src = logo;
 
 // validate if local storage has data associated with rocketData key
 if (JSON.parse(localStorage.getItem('rocketData')) === null || JSON.parse(localStorage.getItem('rockData')) === undefined) {
@@ -18,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     messageElement.id = 'no-rockets';
     messageElement.textContent = message;
     rocketsContainer.appendChild(messageElement);
+    window.location.reload();
   };
 
   if (!rockets === 0) showMessage('waiting');
@@ -42,12 +47,10 @@ const getDataFromLocalStorage = async (key) => {
   }
 })();
 
-// all rockets 🚀🚀
-getAllRockets();
-
 // get rocket🚀 counts from the local storage and update the ui menu item
+
 const getRocketCount = () => {
-  const rocketsMenuItem = document.getElementById('rocketsMenuItem');
+  const rocketsMenuItem = document.getElementById('rockets-menu-item');
   const rocketsCount = rockets.length;
   rocketsMenuItem.innerHTML = `Rockets (${rocketsCount})`;
 };

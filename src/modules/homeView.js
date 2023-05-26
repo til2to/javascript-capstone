@@ -1,4 +1,7 @@
-import { likeRocket, getLikes } from './apis.js';
+import { likeRocket, getLikes, getComments } from './apis.js';
+import popupView from './commentPopup.js';
+
+const homeContainer = document.querySelector('#home-container');
 
 // render data of the homepage
 const homepageView = async (data) => {
@@ -20,26 +23,41 @@ const homepageView = async (data) => {
       const rocketId = rocket.rocket_id;
       const rocketName = rocket.rocket_name;
       const rocketImage = rocket.flickr_images;
+      const successRate = rocket?.success_rate_pct;
+      const costPerLaunch = rocket?.cost_per_launch;
+      const weightMass = rocket?.mass.kg;
+      const rocketType = rocket?.rocket_type;
+
       // Get the likes count from the map, defaulting to 0 if not found
       const rocketLikes = likesMap.get(rocketId) || 0;
-
       // the rockets views 🚀🚀
       rockets += `
-        <li class="each-rocket" id="${rocketId}}">
-          <img src="${rocketImage}" alt="" class="list-item-image">
-          <section class="item">
-            <h3 class="rockec-name">${rocketName}</h3>
-            <section class="like-and-icon">
-              <i class="fa fa-heart" data-rocket-id="${rocketId}""></i>
-              <div class="like-count" id="likeCount${rocketId}">${rocketLikes} likes</div>
-            </section>
+      <li class="each-rocket" id="${rocketId}}">
+        <img src="${rocketImage}" alt="" class="list-item-image">
+        <section class="item">
+          <h3 class="rockec-name">${rocketName}</h3>
+          <section class="like-and-icon">
+          <i class="fa fa-heart" data-rocket-id="${rocketId}""></i>
+          <div class="like-count" id="likeCount${rocketId}">${rocketLikes} likes</div>
           </section>
-          <section class="button-container">
-            <button type="button" class="comments-button" data-rocket-id="${rocketId}">
-              comments
-            </button>
-          </section>
-        </li>
+        </section>
+        
+        <section class="button-container">
+        <button 
+          type="button" 
+          class="comments-button" 
+          data-rocket-id="${rocketId}" 
+          data-rocket-image="${rocketImage}"
+          data-rocket-name="${rocketName}"
+          data-rocket-type=${rocketType}
+          data-rocket-rate=${successRate}
+          data-rocket-cost=${costPerLaunch}
+          data-rocket-weight=${weightMass}
+        >
+        comments
+        </button>
+        </section>
+      </li>
       `;
     });
     rocketsContainer.innerHTML = rockets;
@@ -80,10 +98,34 @@ const homepageView = async (data) => {
 
     // track the comment💬 button clicked
     const commentButtons = document.querySelectorAll('.comments-button');
+
     commentButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        // const rocketId = button.getAttribute('data-rocket-id');
-        // comments to be handled
+      button.addEventListener('click', async () => {
+        const rocketId = button.getAttribute('data-rocket-id');
+        const rocketImage = button.getAttribute('data-rocket-image');
+        const rocketName = button.getAttribute('data-rocket-name');
+        const successRate = button.getAttribute('data-rocket-rate');
+        const costPerLaunch = button.getAttribute('data-rocket-cost');
+        const weightMass = button.getAttribute('data-rocket-weight');
+        const rocketType = button.getAttribute('data-rocket-type');
+
+        // hide the homepage main contains
+        homeContainer.style.filter = 'blur(25px)';
+
+        // get comments💬💬 of this rockets🚀🚀
+        const commentData = await getComments(rocketId);
+
+        // show popup
+        popupView(
+          rocketId,
+          rocketImage,
+          rocketName,
+          successRate,
+          costPerLaunch,
+          weightMass,
+          rocketType,
+          commentData,
+        );
       });
     });
   } catch (error) {
