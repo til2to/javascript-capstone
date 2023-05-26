@@ -8,25 +8,17 @@ const commentCount = (commentData) => {
   return commentData.length;
 };
 
-// function render data of the homepage
+// render data of the homepage
 const popupView = async (
-  rocketId,
-  rocketImage,
-  rocketName,
-  successRate,
-  costPerLaunch,
-  weightMass,
-  rocketType,
+  rocketId, rocketImage, rocketName, successRate, costPerLaunch, weightMass, rocketType,
   commentData,
 ) => {
   const popupsContainer = document.querySelector('.popups-container');
   let popup = '';
-
   popup += `
     <section class="each-popup">
       <div class='pop-container'>
         <section class='image-and-close-button'>
-          <i class="fas fa-times-circle" id="modal-btn"></i> 
           <img src=${rocketImage} alt="" class="popup-item-image">
         </section>
 
@@ -46,23 +38,18 @@ const popupView = async (
         </section>
 
         <section class='rocket-header-container'>
-          <div class='rocket-description comments'>comments: ${commentCount(
-    commentData,
-  )}</div>
+          <div class='rocket-description comments'>comments: ${commentCount(commentData)}</div>
         </section>
 
         <section class='message-details'>
-          ${
-  /* eslint-disable camelcase */
-  commentData
-    .map(
-      ({ creation_date, username, comment }) => `<span class='message'>
-              ${creation_date} ${username}: ${comment}
-            </span>`,
-    )
-    .join('')
-}
-        </section>
+        ${
+/* eslint-disable camelcase */
+  commentData.map(({ creation_date, username, comment }) => (
+    `<span class='message'>
+            ${creation_date} ${username}: ${comment}
+          </span>`
+  )).join('')}
+      </section>
 
         <section class='rocket-header-container'>
           <div class='rocket-description comments'>Add a comment</div>
@@ -70,13 +57,10 @@ const popupView = async (
 
         <form class='form-container'>
           <label for="name">Your Name:</label>
-          <input type="text" id="name" name="name" required placeholder="Your name">
-
+          <input type="text" id="name" name="name" required>
           <label for="message">Your Insights:</label>
-          <textarea id="message" name="message" rows="4" cols="40" required placeholder="Your insights"></textarea>
-          
+          <textarea id="message" name="message" rows="4" cols="40" required></textarea>
           <div id="response-container"></div>
-
           <button type="submit" class="comments-button comment-popup">Comment</button>
         </form>
       </div>
@@ -85,7 +69,6 @@ const popupView = async (
 
   popupsContainer.innerHTML = popup;
 
-  // handle form submission
   const form = document.querySelector('.form-container');
   form.addEventListener('submit', async (e) => {
     // Get the form values
@@ -113,19 +96,6 @@ const popupView = async (
 
     // Clear the form fields
     form.reset();
-  });
-
-  const modalClose = document.querySelector('#modal-btn');
-  const modalContainer = document.querySelector('.popups-container');
-  const homeContainer = document.querySelector('#home-container');
-
-  // handle the closing button
-  modalClose.addEventListener('click', () => {
-    // hide the popup/modal container
-    modalContainer.style.display = 'none';
-    // show popupClose button
-    homeContainer.style.filter = 'blur(0px)';
-    window.location.reload();
   });
 };
 

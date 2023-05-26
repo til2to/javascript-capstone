@@ -12,6 +12,10 @@ body {
   margin: 0 auto;
 }
 
+/* .content {
+  flex: 1;
+} */
+
 nav {
   display: flex;
   align-items: center;
@@ -70,7 +74,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
 #home-container > ul {
@@ -125,7 +128,7 @@ main {
 
 .button-container {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
 }
 
@@ -153,22 +156,12 @@ main {
 }
 
 .each-popup {
-  width: 90%;
+  width: 95%;
   margin: 50px 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 80%;
-  overflow-y: scroll;
-}
-
-.pop-container {
-  box-shadow: 0 0 5px white;
-  width: 70%;
-  margin-right: auto;
-  margin-left: auto;
-  border: 2px solid #333;
+  height: 95%;
+  backdrop-filter: blur(5px);
+  overflow: scroll;
+  border: 1px solid #dfe1e6;
 }
 
 .image-and-close-button {
@@ -178,13 +171,15 @@ main {
   align-items: center;
 }
 
-#modal-btn {
-  /* display: none; */
+.popup-item-image {
+  margin-top: 3%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
-  /* margin: 0 0; */
-  z-index: 999;
-  position: fixed;
-  cursor: pointer;
+#modal-btn {
+  display: none;
 }
 
 .fa-times-circle {
@@ -193,13 +188,6 @@ main {
   transform: translate(-50%, -50%);
   left: 90%;
   font-size: 24px;
-}
-
-.popup-item-image {
-  margin-top: 3%;
-  width: 70%;
-  height: auto;
-  object-fit: cover;
 }
 
 .rocket-description {
@@ -233,13 +221,12 @@ main {
 }
 
 .message-details {
-  width: 100%;
+  width: 30%;
+  padding-left: 300px;
 }
 
 .items-properties.each-property.message {
   margin-bottom: 10px;
-
-  /* text-align: center; */
   margin-right: auto;
   margin-left: auto;
   width: 100%;
@@ -249,7 +236,7 @@ main {
   font-size: 19px;
   display: flex;
   margin-top: 2%;
-  width: 55%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -259,7 +246,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 55%;
+  width: 45%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -269,11 +256,6 @@ main {
 .form-container textarea,
 .form-container button {
   margin-bottom: 10px;
-  padding: 4px;
-}
-
-.form-container label {
-  display: none;
 }
 
 @keyframes fade-in {

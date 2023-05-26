@@ -30,34 +30,36 @@ const homepageView = async (data) => {
 
       // Get the likes count from the map, defaulting to 0 if not found
       const rocketLikes = likesMap.get(rocketId) || 0;
+
       // the rockets views 🚀🚀
       rockets += `
-      <li class="each-rocket" id="${rocketId}}">
-        <img src="${rocketImage}" alt="" class="list-item-image">
-        <section class="item">
-          <h3 class="rockec-name">${rocketName}</h3>
-          <section class="like-and-icon">
-          <i class="fa fa-heart" data-rocket-id="${rocketId}""></i>
-          <div class="like-count" id="likeCount${rocketId}">${rocketLikes} likes</div>
+        <li class="each-rocket" id="${rocketId}}">
+          <img src="${rocketImage}" alt="" class="list-item-image">
+
+          <section class="item">
+            <h3 class="rockec-name">${rocketName}</h3>
+            <section class="like-and-icon">
+              <i class="fa fa-heart" data-rocket-id="${rocketId}""></i>
+              <div class="like-count" id="likeCount${rocketId}">${rocketLikes} likes</div>
+            </section>
           </section>
-        </section>
-        
-        <section class="button-container">
-        <button 
-          type="button" 
-          class="comments-button" 
-          data-rocket-id="${rocketId}" 
-          data-rocket-image="${rocketImage}"
-          data-rocket-name="${rocketName}"
-          data-rocket-type=${rocketType}
-          data-rocket-rate=${successRate}
-          data-rocket-cost=${costPerLaunch}
-          data-rocket-weight=${weightMass}
-        >
-        comments
-        </button>
-        </section>
-      </li>
+
+          <section class="button-container">
+            <button 
+              type="button" 
+              class="comments-button" 
+              data-rocket-id="${rocketId}" 
+              data-rocket-image="${rocketImage}"
+              data-rocket-name="${rocketName}"
+              data-rocket-type=${rocketType}
+              data-rocket-rate=${successRate}
+              data-rocket-cost=${costPerLaunch}
+              data-rocket-weight=${weightMass}
+            >
+                comments
+            </button>
+          </section>
+        </li>
       `;
     });
     rocketsContainer.innerHTML = rockets;
@@ -97,7 +99,9 @@ const homepageView = async (data) => {
     });
 
     // track the comment💬 button clicked
+    const modalClose = document.querySelector('#modal-btn');
     const commentButtons = document.querySelectorAll('.comments-button');
+    const modalContainer = document.querySelector('.popups-container');
 
     commentButtons.forEach((button) => {
       button.addEventListener('click', async () => {
@@ -110,22 +114,25 @@ const homepageView = async (data) => {
         const rocketType = button.getAttribute('data-rocket-type');
 
         // hide the homepage main contains
-        homeContainer.style.filter = 'blur(25px)';
+        homeContainer.style.filter = 'blur(8px)';
+        // show button to close modal
+        modalClose.style.display = 'block';
 
         // get comments💬💬 of this rockets🚀🚀
         const commentData = await getComments(rocketId);
 
         // show popup
-        popupView(
-          rocketId,
-          rocketImage,
-          rocketName,
-          successRate,
-          costPerLaunch,
-          weightMass,
-          rocketType,
-          commentData,
-        );
+        popupView(rocketId, rocketImage, rocketName,
+          successRate, costPerLaunch, weightMass, rocketType, commentData);
+
+        modalClose.addEventListener('click', () => {
+          // hide the popup/modal container
+          modalContainer.style.display = 'none';
+          // show the homepage content
+          homeContainer.style.display = 'block';
+          // hide the modal closing button
+          modalClose.style.display = 'none';
+        });
       });
     });
   } catch (error) {

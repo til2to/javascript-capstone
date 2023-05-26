@@ -27,9 +27,7 @@ const getAllRockets = async () => {
       rocket_id,
       flickr_images: flickr_images[0], // Extract the first element from the flickr_images array
     }));
-
     localStorage.setItem('rocketData', JSON.stringify(rocketsData));
-    return rocketsData;
   } catch (error) {
     throw new Error(error.message);
   }
@@ -40,8 +38,8 @@ const likeRocket = async (rocketId) => {
   try {
     const response = await fetch(`${likeBaseUrl}`, {
       method: 'POST',
-      /* eslint-disable camelcase */
       headers: { 'Content-Type': 'application/json' },
+      /* eslint-disable camelcase */
       body: JSON.stringify({ item_id: rocketId }), // send data to the endpoint
     });
     if (!response.ok) {

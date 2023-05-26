@@ -1,5 +1,8 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import './style.css';
 import homepageView from './modules/homeView.js';
+import { getAllRockets } from './modules/apis.js';
 import logo from './assets/rocket-logo.svg';
 
 const rocketsContainer = document.querySelector('.rockets-container');
@@ -23,11 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     messageElement.textContent = message;
     rocketsContainer.appendChild(messageElement);
   };
-
   if (!rockets === 0) showMessage('waiting');
 });
-
-// get data from local storage
 const getDataFromLocalStorage = async (key) => {
   try {
     return JSON.parse(localStorage.getItem(key));
@@ -46,12 +46,16 @@ const getDataFromLocalStorage = async (key) => {
   }
 })();
 
-// get rocket🚀 counts from the local storage and update the ui menu item
+// popupView();
 
-export const getRocketCount = () => {
-    const rocketsMenuItem = document.getElementById('rockets-menu-item');
-    const rocketsCount = rockets.length;
-    rocketsMenuItem.innerHTML = `Rockets (${rocketsCount})`;
+// all rockets 🚀🚀
+getAllRockets();
+
+// get rocket🚀 counts from the local storage and update the ui menu item
+const getRocketCount = () => {
+  const rocketsMenuItem = document.getElementById('rockets-menu-item');
+  const rocketsCount = rockets.length;
+  rocketsMenuItem.innerHTML = `Rockets (${rocketsCount})`;
 };
 
 // Call the getRocketCount() after fetching the data from local storage:
