@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
 */
-import { getRocketCount } from './src/index.js';
+import getRocketCount from './src/index.js';
 
 // Mock localStorage
 const localStorageMock = (() => {
@@ -40,7 +40,7 @@ describe('returns the correct rocket count', () => {
 
     // Retrieve local storage
     const updatedRockets = JSON.parse(localStorageMock.getItem('rocketData')) || [];
-    
+
     // Set rockets array in local storage
     localStorageMock.setItem('rocketData', JSON.stringify([...updatedRockets, ...rockets]));
 

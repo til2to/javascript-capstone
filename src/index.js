@@ -46,16 +46,16 @@ const getDataFromLocalStorage = async (key) => {
 getAllRockets();
 
 // get rocket🚀 counts from the local storage and update the ui menu item
-export const getRocketCount = () => {
-  const rocketLength = JSON.parse(localStorage.getItem('rocketData'))
-  if(!rocketLength) return 0
+const getRocketCount = () => {
+  const rocketLength = JSON.parse(localStorage.getItem('rocketData'));
+  if (!rocketLength) return 0;
   const rocketsCount = rocketLength.length;
   return rocketsCount;
 };
 
 window.addEventListener('DOMContentLoaded', () => {
   const rocketsMenuItem = document.getElementById('rockets-menu-item');
-  rocketsMenuItem.innerHTML = `Rockets (0)`;
+  rocketsMenuItem.innerHTML = 'Rockets (0)';
   rocketsMenuItem.innerHTML = `Rockets (${getRocketCount()})`;
 });
 
@@ -63,3 +63,5 @@ window.addEventListener('DOMContentLoaded', () => {
 getRocketCount(); // 🚀🚀
 
 homepageView(rockets);
+
+export default getRocketCount;

@@ -73,8 +73,9 @@ const homepageView = async (data) => {
           // initialize and add some likes to the likes count👍
           await likeRocket(rocketId);
         } catch (error) {
-          // Handle any errors
-          console.log();
+          /* eslint-disable no-console */
+          console.log(error.message);
+          /* eslint-enable no-console */
         }
 
         // call the endpoint get the likes👍👍
@@ -91,7 +92,9 @@ const homepageView = async (data) => {
             likeCountElement.textContent = '0 likes';
           }
         } catch (error) {
-          console.log();
+          /* eslint-disable no-console */
+          console.log(error.message);
+          /* eslint-enable no-console */
         }
       });
     });
@@ -129,7 +132,9 @@ const homepageView = async (data) => {
       });
     });
   } catch (error) {
-    console.log();
+    /* eslint-disable no-console */
+    console.log(error.message);
+    /* eslint-enable no-console */
   }
 };
 
