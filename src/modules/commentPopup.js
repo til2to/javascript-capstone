@@ -1,4 +1,4 @@
-import { makeComment } from './apis.js';
+import { getComments, makeComment } from './apis.js';
 
 // get comment count from local storage
 const count = JSON.parse(localStorage.getItem('commentCounter'));
@@ -22,6 +22,15 @@ const popupView = async (
 
   const popupsContainer = document.querySelector('.popups-container');
   let popup = '';
+
+  // generate the markup with function to be able to update in real time.
+  const generateCommentMarkup = (commentData) => commentData
+    .map(({ creation_date, username, comment }) => `
+        <span class='message'>
+          ${creation_date} ${username}: ${comment}
+        </span>`)
+    .join('');
+
   popup += `
     <section class="each-popup">
       <div class='pop-container'>
@@ -46,22 +55,12 @@ const popupView = async (
         </section>
 
         <section class='rocket-header-container'>
-          <div class='rocket-description comments'>comments: ${commentCountValue}</div>
+          <div class='rocket-description comment-count' id="commentCount${rocketId}">comments: ${commentCountValue}</div>
         </section>
 
         <section class='message-details'>
-          ${
-  /* eslint-disable camelcase */
-  commentData
-    .map(
-      ({ creation_date, username, comment }) => `<span class='message'>
-              ${creation_date} ${username}: ${comment}
-            </span>`,
-    )
-    .join('')
-}
+          ${generateCommentMarkup(commentData)}
         </section>
-
         <section class='rocket-header-container'>
           <div class='rocket-description comments'>Add a comment</div>
         </section>
@@ -104,6 +103,18 @@ const popupView = async (
     responseDiv.textContent = await makeComment(rocketId, username, comment);
     responseDiv.classList.add('response-animation'); // Add the response animation class
 
+    // get the whole comments and update the ui
+    const allComments = await getComments(rocketId);
+
+    // update the comment view
+    const messageDetails = document.querySelector('.message-details');
+    messageDetails.innerHTML = generateCommentMarkup(allComments);
+
+    // Update the comment count in the UI
+    const updateCountElement = document.getElementById(`commentCount${rocketId}`);
+    const latestCommentCount = await commentCount();
+    updateCountElement.textContent = `comments: ${latestCommentCount}`;
+
     // Add the responseDiv to the response container
     const container = document.getElementById('response-container');
     container.innerHTML = ''; // Clear any previous response
@@ -111,6 +122,11 @@ const popupView = async (
 
     // Clear the form fields
     form.reset();
+
+    // Clear the responseDiv after 4 seconds
+    setTimeout(() => {
+      container.innerHTML = ''; // Clear the responseDiv
+    }, 4000);
   });
 
   const modalClose = document.querySelector('#modal-btn');

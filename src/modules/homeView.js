@@ -12,14 +12,12 @@ const homepageView = async (data) => {
     const likesData = await getLikes(); // Retrieve the likes data from the API
     const likesMap = new Map();
 
-    /* eslint-disable camelcase */
     likesData.forEach(({ item_id, likes }) => {
       // Create a map of rocketId to likes count
       likesMap.set(item_id, likes);
     });
 
     data.forEach((rocket) => {
-      /* eslint-disable camelcase */
       const rocketId = rocket.rocket_id;
       const rocketName = rocket.rocket_name;
       const rocketImage = rocket.flickr_images;
@@ -81,7 +79,6 @@ const homepageView = async (data) => {
         // call the endpoint get the likes👍👍
         try {
           const data = await getLikes();
-          /* eslint-disable camelcase */
           const updateLike = data.find(({ item_id }) => item_id === rocketId);
           // update the like count of each rocket in the UI
           if (updateLike) {
@@ -117,9 +114,6 @@ const homepageView = async (data) => {
 
         // get comments💬💬 of this rockets🚀🚀
         const commentData = await getComments(rocketId);
-
-        // console.log(commentData.length)
-        // localStorage.setItem('eachComment', JSON.stringify(commentData))
 
         // show popup
         popupView(

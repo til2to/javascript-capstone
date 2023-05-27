@@ -18,7 +18,7 @@ const getAllRockets = async () => {
 
     // the responese data is an array so loop through and extract the relevant data needed
     const rocketsData = responseData.map(({
-      /* eslint-disable camelcase */
+
       rocket_name, rocket_id, flickr_images, cost_per_launch,
       success_rate_pct, mass, rocket_type,
     }) => ({
@@ -46,7 +46,7 @@ const likeRocket = async (rocketId) => {
   try {
     const response = await fetch(`${likeBaseUrl}`, {
       method: 'POST',
-      /* eslint-disable camelcase */
+
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ item_id: rocketId }), // send data to the endpoint
     });
@@ -70,7 +70,7 @@ const makeComment = async (rocketId, username, comment) => {
       // send data to the endpoint
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      /* eslint-disable camelcase */
+
       body: JSON.stringify({
         item_id: rocketId, username, comment,
       }),
