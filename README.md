@@ -1,5 +1,6 @@
+# 📖 [Javascript-Capstone] <a name="about-project"></a>
+This is 2nd Capstone group project
 
-<a name="readme-top"></a>
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -21,7 +22,8 @@
 
 # 📖 [Javascript-Capstone] <a name="about-project"></a>
 
-**[milestone]** This is our 1st Group Capstone project web application that allows users to add a player name and score to a database. Users send and retrieve data. 
+**[Milestone2]** This is 2nd Capstone group project which uses JavaScript ES6 to make website dynamic and build basic single page apps using API. Interesting feature for this project is that we used Kanban board with filled-in tasks that have categories and time estimations to assign work in group.
+We perform unit test ,follow proper gitflow to asynchronously retrive likes and comments.
 
 ## 🛠 Built With <a name="built-with"></a>
 - **[Html]**
@@ -33,18 +35,19 @@
 ### Key Features <a name="key-features"></a>
 
 - **[Plain_JS_with_functions]**
-- **[Plain_JS_with_webpack_bundlers]**
-- **[Send_player's_name_and_score]**
-- **[Retrieve_data_of_records_about_the_data_you_send]**
-- **[Implemented_a_third_party_endpoint]**
-
+- **[Make JavaScript code asynchronous_with_webpack_bundlers]**
+- **[Follow Gitflow]**
+- **[Send and receive data from an API]**
+- **[Make JavaScript code asynchronous.]**
+- **[Use AAA pattern for unit tests.]**
+- 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](Coming Soon)
+- [Live Demo Link](https://drive.google.com/file/d/1hJ41FHF8v6xQ1_PvGJ6GbVki0N71BIIH/view)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -56,8 +59,10 @@
 To get a local copy up and running, follow these steps.
 1. install git 
 2. Clone the project from the repository, "git clone address"
-3. run "npm i" to install all dependencies and node modules
-4. run "npm start" to start the app
+3. Set up webpack.
+4. run "npm i" to install all dependencies and node modules
+5. Set up a JavaScript testing library (Jest).
+6. run "npm start" to start the app
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -83,8 +88,8 @@ To get a local copy up and running, follow these steps.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **[Implemented_third_party_endpoints_for_sending_and_data]**
-- **[Codebase_is_structured_into_modules]**
+- **[Registration form]**
+- **[Email link for thankyou note for entering comments]**
 - **[JavaScript_was_used_to_render_the_table_of_the_layout]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -95,7 +100,7 @@ To get a local copy up and running, follow these steps.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/til2to/milestone-books/issues).
+Feel free to check the [issues page](https://github.com/til2to/javascript-capstone/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,6 +125,6 @@ I would like to also thank my code reviewers for their feedbacks.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
+This project is [MIT](https://github.com/til2to/javascript-capstone/blob/main/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

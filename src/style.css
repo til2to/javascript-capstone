@@ -1,19 +1,17 @@
 html,
 body {
+  flex-direction: column;
   margin: 0;
   padding: 0;
   height: calc(100% - 20px);
   overflow-y: auto;
 }
 
-body {
+.flexi {
   display: flex;
-  flex-direction: column;
-  margin: 0 auto;
 }
 
 nav {
-  display: flex;
   align-items: center;
   position: fixed;
   top: 0;
@@ -29,7 +27,6 @@ nav {
   text-decoration: none;
   color: #333;
   display: inline;
-  display: flex;
   align-items: center; /* Align logo and text vertically */
 }
 
