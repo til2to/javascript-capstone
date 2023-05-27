@@ -19,9 +19,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Leaderboard] <a name="about-project"></a>
+# 📖 [Javascript-Capstone] <a name="about-project"></a>
 
-**[milestone-books]** is a basic web application that allows users to add a player name and score to a database. Users send and retrieve data. 
+**[milestone]** This is our 1st Group Capstone project web application that allows users to add a player name and score to a database. Users send and retrieve data. 
 
 ## 🛠 Built With <a name="built-with"></a>
 - **[Html]**

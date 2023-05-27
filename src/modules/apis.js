@@ -99,6 +99,8 @@ const getComments = async (rocketId) => {
     }
 
     const responseData = await response.json();
+    const counter = responseData.length;
+    localStorage.setItem('commentCounter', JSON.stringify(counter));
     return responseData;
   } catch (error) {
     /* eslint-disable no-console */
