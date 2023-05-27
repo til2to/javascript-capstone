@@ -1,13 +1,8 @@
 import './style.css';
 import homepageView from './modules/homeView.js';
-import logo from './assets/rocket-logo.svg';
-import { getAllRockets } from './modules/apis';
+import { getAllRockets } from './modules/apis.js';
 
 const rocketsContainer = document.querySelector('.rockets-container');
-const imageElement = document.querySelector('.logo-image');
-
-// get the logo container and insert the image
-imageElement.src = logo;
 
 // validate if local storage has data associated with rocketData key
 if (JSON.parse(localStorage.getItem('rocketData')) === null || JSON.parse(localStorage.getItem('rockData')) === undefined) {
@@ -51,11 +46,18 @@ const getDataFromLocalStorage = async (key) => {
 getAllRockets();
 
 // get rocket🚀 counts from the local storage and update the ui menu item
-const getRocketCount = () => {
-  const rocketsMenuItem = document.getElementById('rockets-menu-item');
-  const rocketsCount = rockets.length;
-  rocketsMenuItem.innerHTML = `Rockets (${rocketsCount})`;
+export const getRocketCount = () => {
+  const rocketLength = JSON.parse(localStorage.getItem('rocketData'))
+  if(!rocketLength) return 0
+  const rocketsCount = rocketLength.length;
+  return rocketsCount;
 };
+
+window.addEventListener('DOMContentLoaded', () => {
+  const rocketsMenuItem = document.getElementById('rockets-menu-item');
+  rocketsMenuItem.innerHTML = `Rockets (0)`;
+  rocketsMenuItem.innerHTML = `Rockets (${getRocketCount()})`;
+});
 
 // Call the getRocketCount() after fetching the data from local storage:
 getRocketCount(); // 🚀🚀

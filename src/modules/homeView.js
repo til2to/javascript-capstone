@@ -74,7 +74,7 @@ const homepageView = async (data) => {
           await likeRocket(rocketId);
         } catch (error) {
           // Handle any errors
-          throw new Error(error.message);
+          console.log();
         }
 
         // call the endpoint get the likes👍👍
@@ -91,7 +91,7 @@ const homepageView = async (data) => {
             likeCountElement.textContent = '0 likes';
           }
         } catch (error) {
-          throw new Error(error.message);
+          console.log();
         }
       });
     });
@@ -129,7 +129,7 @@ const homepageView = async (data) => {
       });
     });
   } catch (error) {
-    throw new Error(error.message);
+    console.log();
   }
 };
 

@@ -7,7 +7,10 @@ const appId = '5GbgWWZPMVcYokoIs4ID';
 // get all rockets 🚀🚀
 const getAllRockets = async () => {
   try {
-    const response = await fetch(`${baseUrl}`);
+    const response = await fetch(`${baseUrl}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    });
     if (!response.ok) {
       throw new Error('Could not fetch data');
     }
@@ -31,7 +34,7 @@ const getAllRockets = async () => {
     localStorage.setItem('rocketData', JSON.stringify(rocketsData));
     return rocketsData;
   } catch (error) {
-    throw new Error(error.message);
+    console.log(error.message)
   }
 };
 
@@ -50,7 +53,7 @@ const likeRocket = async (rocketId) => {
     const responeseData = await response.text();
     return responeseData;
   } catch (error) {
-    throw new Error(error.message);
+    console.log(error.message)
   }
 };
 
@@ -73,7 +76,7 @@ const makeComment = async (rocketId, username, comment) => {
     const responeseData = await response.text();
     return responeseData;
   } catch (error) {
-    throw new Error(error.message);
+    console.log(error.message)
   }
 };
 
@@ -89,7 +92,7 @@ const getComments = async (rocketId) => {
     const responseData = await response.json();
     return responseData;
   } catch (error) {
-    throw new Error(error.message);
+    console.log(error.message)
   }
 };
 
@@ -103,7 +106,7 @@ const getLikes = async () => {
     const responseData = await responese.json();
     return responseData;
   } catch (error) {
-    throw new Error(error.message);
+    console.log(error.message)
   }
 };
 
