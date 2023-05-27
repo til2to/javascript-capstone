@@ -1,12 +1,10 @@
 import { makeComment } from './apis.js';
 
+// get comment count from local storage
+const count = JSON.parse(localStorage.getItem('commentCounter'));
+
 // count the comments💬💬 of each rocket🚀
-const commentCount = (commentData) => {
-  if (!commentData || commentData === undefined) {
-    return 0;
-  }
-  return commentData.length;
-};
+const commentCount = async () => JSON.parse(localStorage.getItem('commentCounter'));
 
 // function render data of the homepage
 const popupView = async (
@@ -19,9 +17,11 @@ const popupView = async (
   rocketType,
   commentData,
 ) => {
+  // Retrieve comment count asynchronously
+  const commentCountValue = await commentCount();
+
   const popupsContainer = document.querySelector('.popups-container');
   let popup = '';
-
   popup += `
     <section class="each-popup">
       <div class='pop-container'>
@@ -46,9 +46,7 @@ const popupView = async (
         </section>
 
         <section class='rocket-header-container'>
-          <div class='rocket-description comments'>comments: ${commentCount(
-    commentData,
-  )}</div>
+          <div class='rocket-description comments'>comments: ${commentCountValue}</div>
         </section>
 
         <section class='message-details'>
@@ -129,4 +127,4 @@ const popupView = async (
   });
 };
 
-export default popupView;
+export { count, commentCount, popupView };

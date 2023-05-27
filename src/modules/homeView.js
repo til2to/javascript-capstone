@@ -1,5 +1,5 @@
 import { likeRocket, getLikes, getComments } from './apis.js';
-import popupView from './commentPopup.js';
+import { popupView } from './commentPopup.js';
 
 const homeContainer = document.querySelector('#home-container');
 
@@ -117,6 +117,9 @@ const homepageView = async (data) => {
 
         // get comments💬💬 of this rockets🚀🚀
         const commentData = await getComments(rocketId);
+
+        // console.log(commentData.length)
+        // localStorage.setItem('eachComment', JSON.stringify(commentData))
 
         // show popup
         popupView(
